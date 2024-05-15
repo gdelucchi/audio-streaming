@@ -17,6 +17,13 @@
 # https://hub.docker.com/_/node
 FROM node:12-slim
 
+#Agrego la instalación de Python Gonzalo Delucchi 14/5
+# Install Python
+RUN apt-get install -y python3.6 \
+    && ln -s /usr/bin/python3.6 /usr/bin/python3
+RUN python3 -V
+
+
 # Create and change to the app directory.
 WORKDIR /usr/src/app
 
