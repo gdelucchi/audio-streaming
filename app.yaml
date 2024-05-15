@@ -18,7 +18,7 @@ env: flex
 network:
     session_affinity: true
 env_variables:
-    PROJECT_ID: "selfservicedesk"
+    PROJECT_ID: "abl-dev-losnaturales-1z2a"
     LANGUAGE_CODE: "en-US"
     ENCODING: "AUDIO_ENCODING_LINEAR_16"
     SAMPLE_RATE_HERZ: "16000"
