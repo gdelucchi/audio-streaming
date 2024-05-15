@@ -19,8 +19,9 @@ FROM node:12-slim
 
 #Agrego la instalación de Python Gonzalo Delucchi 14/5
 # Install Python
-RUN apt-get install -y python3.6 \
-    && ln -s /usr/bin/python3.6 /usr/bin/python3
+#RUN apt-get install -y python3.6 \
+#    && ln -s /usr/bin/python3.6 /usr/bin/python3
+RUN apt-get update || : && apt-get install python3.6 -y && ln -s /usr/bin/python3.6 /usr/bin/python3
 RUN python3 -V
 
 
