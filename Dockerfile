@@ -21,8 +21,9 @@ FROM node:12-slim
 # Install Python
 #RUN apt-get install -y python3.6 \
 #    && ln -s /usr/bin/python3.6 /usr/bin/python3
-RUN apt-get update || : && apt-get install python3.6 -y && ln -s /usr/bin/python3.6 /usr/bin/python3
-RUN python3 -V
+#RUN apt-get update || : && apt-get install python3.6 -y && ln -s /usr/bin/python3.6 /usr/bin/python3
+RUN apt-get update || : && apt-get install python -y
+RUN python -V
 
 
 # Create and change to the app directory.
