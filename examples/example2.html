@@ -117,7 +117,7 @@
     socketio.on('results', function (data) {
         console.log(data);
         if(data.queryResult){
-            resultpreview.innerHTML += "" + data.queryResult.fulfillmentText;
+            resultpreview.innerHTML += " " + data.queryResult.fulfillmentText;
             intentInput.value = data.queryResult.intent.displayName;
             textInput.value = "" + data.queryResult.queryText;
         }

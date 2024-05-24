@@ -21,7 +21,7 @@ const projectId = process.env.npm_config_PROJECT_ID;
 const example = process.env.npm_config_EXAMPLE;
 const port = ( process.env.npm_config_PORT || 3000 );
 
-const languageCode = 'en-US';
+const languageCode = 'es-419';
 let encoding = 'AUDIO_ENCODING_LINEAR_16';
 if(example > 3){
   // NOTE: ENCODING NAMING FOR SPEECH API IS DIFFERENT
@@ -150,7 +150,7 @@ function setupServer() {
             stream.pipe(fs.createWriteStream(filename));
             // make a detectIntStream call
             transcribeAudioStream(stream, function(results){
-                console.log(results);
+                //console.log(results);
                 client.emit('results', results);
             });
         });
@@ -167,6 +167,7 @@ function setupServer() {
 
         // when the client sends 'stream-media' events
         // when using audio streaming
+        console.log('audio streaming');
         ss(client).on('stream-media', function(stream, data) {
           // get the name of the stream
           const filename = path.basename(data.name);
@@ -174,7 +175,7 @@ function setupServer() {
           stream.pipe(fs.createWriteStream(filename));
           // make a detectIntStream call
           transcribeAudioMediaStream(stream, function(results){
-              console.log(results);
+              //console.log(results);
               client.emit('results', results);
           });
         });
@@ -253,7 +254,7 @@ function mediaTranslation(){
   console.log(encoding);
   requestMedia = {
     audioEncoding: encoding,
-    sourceLanguageCode: 'en-US',
+    sourceLanguageCode: 'es-UY',
     targetLanguageCode: 'de-DE'
   }
 }
@@ -269,7 +270,7 @@ function setupTTS(){
   requestTTS = {
     // Select the language and SSML Voice Gender (optional)
     voice: {
-      languageCode: 'en-US', //https://www.rfc-editor.org/rfc/bcp/bcp47.txt
+      languageCode: 'es-UY', //https://www.rfc-editor.org/rfc/bcp/bcp47.txt
       ssmlGender: 'NEUTRAL'  //  'MALE|FEMALE|NEUTRAL'
     },
     // Select the type of audio encoding
